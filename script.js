@@ -6,8 +6,86 @@ const btnDetailed = document.getElementById("detailProgramme");
 const content = document.getElementById("content");
 
 
-
 const registration = () => {
+  content.innerHTML = `
+    <h1>Registration</h1>
+
+    <h3>Student Applications</h3>
+    <p>
+      Participation in this event is available for a limited number of ComSoc Student Members in the Sri Lanka region.
+      Membership is not required in order to apply; however, if your application is accepted, you will need to become a
+      ComSoc Student Member in order to register and attend the event.
+
+      Meals and refreshments will be provided to students during the event. All other expenses will be the responsibility
+      of student participants.
+    </p>
+    <br>
+    <p>
+      <strong>Applications are now being accepted through 1 November 2024.</strong>
+      Students will be notified of application decisions by 22 November 2024 via email. If your application is accepted,
+      you will be sent a link to register for the event. You will need to have active ComSoc Student Membership at that
+      time in order to register./n
+    </p>
+    <br>
+    <p>  <strong>Participation is available for a limited number of ComSoc Student Members from the Sri Lanka
+          region.</strong> <span style="color:#d9534f;"><strong>Membership is <u>not required</u> in order to
+            apply</strong></span>; however, if your application is accepted, you will need to become a ComSoc Student
+        Member in order to register and attend the event.
+    </p>
+    </p>
+
+    <div class="mt-4">
+      <a
+        href="https://forms.gle/zrWEpKohofvLyKEq7"
+        class="btn-link"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Apply Now for IEEE ComSoc School Series in Jaffna"
+      >
+        Apply Now
+      </a>
+    </div>
+
+    <h3 class="mt-8">Guidance for Submitting Your Application</h3>
+    <p>
+      To help you prepare to submit your application, please have the following required information ready:
+    </p>
+    <ul class="list-disc ml-8">
+      <li>Your full name and mailing address</li>
+      <li>Nationality (Country of Citizenship)</li>
+      <li>Name of Your University/College</li>
+      <li>Program Currently Enrolled In At University</li>
+      <li>Years Spent In Advanced Degree Program</li>
+      <li>Short CV – Attached as a PDF</li>
+      <li>
+        Student Application Letter – attached as a PDF (This is a one-page letter about why you want to participate
+        in this program)
+      </li>
+    </ul>
+    <br>
+    <p>You may also include this optional information:</p>
+    <ul class="list-disc ml-8">
+      <li>Recommender Name (This Is Usually A Professor Or IEEE ComSoc Member)</li>
+      <li>Recommender Email</li>
+      <li>Recommendation Letter – Attached as a PDF</li>
+      <li>WhatsApp Contact Number (Including Country Code)</li>
+    </ul>
+
+    <div style="margin-top:2.4rem;" class="align-center">
+      <a
+        href="https://www.comsoc.org/education-training/ieee-comsoc-school-series/2025-ieee-comsoc-school-series-jaffna-sri-lanka-event"
+        class="btn-link"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="More details about IEEE ComSoc School Series in Jaffna"
+      >
+        Learn More &amp; Register
+      </a>
+    </div>
+  `;
+};
+
+/*const registration = () => {
   content.innerHTML = `
   <h1>Registration</h1>
           
@@ -93,59 +171,124 @@ const registration = () => {
             </div>
   
   `;
-};
+};*/
 
 const important = () => {
   content.innerHTML = `
     <h1>Important Dates</h1>
     <table class="important-dates mt-8">
-    <tr>
-    <td>Call For Applications</td>
-      <td>07 June 2023</td>
-    </tr>
-    <tr>
-    <td>Deadline For Applications</td>
-      <td>14 June 2023</td>
-    </tr>
-    <tr>
-      <td>Deadline For Registration</td>
-        <td>20 June 2023</td>
+      <tr>
+        <td>
+          Call For Student Applications
+          <div style="margin:5px 0; padding-left:1.8em;">
+            <a
+              href="https://forms.gle/zrWEpKohofvLyKEq7"
+              class="btn-link"
+            >
+              Learn More &amp; Register
+            </a>
+          </div>
+        </td>
+        <td>07 July 2025</td>
       </tr>
       <tr>
-      <td>Summer School Dates</td>
-        <td>12-14 July 2023</td>
+        <td>
+          Call For Industry Workshop Applications
+          <div style="margin:5px 0; padding-left:1.8em;">
+            <a
+              href="https://www.comsoc.org/industry-workshop-application"
+              class="btn-link"
+              style="background-color:#861F41; color:#fff; padding:0.25em 0.5em; font-size:0.875rem; border-radius:0.25rem; display:inline-block;"
+            >
+              Learn More &amp; Register
+            </a>
+          </div>
+        </td>
+        <td>14 July 2025</td>
+      </tr>
+      <tr>
+        <td>
+          Call For Academic Workshop Applications
+          <div style="margin:5px 0; padding-left:1.8em;">
+            <a
+              href="https://www.comsoc.org/academic-workshop-application"
+              class="btn-link"
+              style="background-color:#861F41; color:#fff; padding:0.25em 0.5em; font-size:0.875rem; border-radius:0.25rem; display:inline-block;"
+            >
+              Learn More &amp; Register
+            </a>
+          </div>
+        </td>
+        <td>14 July 2025</td>
+      </tr>
+      <tr>
+        <td>Deadline For Applications</td>
+        <td>14 July 2025</td>
+      </tr>
+      <tr>
+        <td>Deadline For Registration</td>
+        <td>20 July 2025</td>
+      </tr>
+      <tr>
+        <td>Summer School Dates</td>
+        <td>11–15 August 2025</td>
       </tr>
     </table>
-    
-    `;
+  `;
 };
+
+
+
 
 const venue = () => {
   content.innerHTML = `
     <h1>Venue</h1>
-        
-        
     <p class="mt-8 color-black">
-    Auditorium, <br/>Department of Computer Science,
-    <br/>
-Faculty of Science,
-<br/>
-University of Jaffna,
-<br/>
-Jaffna.
-<br/>
-<br/>
-<b>Location:</b><br/>
-4 kilometers from Jaffna Railway Station / Central Bus Stand
-    
+      Below are the two main venues where lectures will be conducted:
     </p>
 
-    <div class="map-holder">
-    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3932.9429306224306!2d80.01849140912466!3d9.685912178323424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afe550cdcd93ec5%3A0xef645c5109fd713e!2sDepartment%20of%20Computer%20science!5e0!3m2!1sen!2slk!4v1685876153441!5m2!1sen!2slk"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    
-    </div>    
-    `;
+    <div class="venue-block mt-6">
+      <h3>Auditorium, Faculty of Agriculture, University of Jaffna</h3>
+      <a
+        href="https://maps.app.goo.gl/qLPib7jAXtDGV9KH8"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View on Google Maps
+      </a>
+      <div class="map-holder mt-2">
+        <iframe
+          class="map"
+          src="https://www.google.com/maps?q=Faculty%20of%20Agriculture%20University%20of%20Jaffna&output=embed"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+
+    <div class="venue-block mt-8">
+      <h3>Jaffna Thiruvalluvar Cultural Center</h3>
+      <a
+        href="https://maps.app.goo.gl/73t8REDacPuWbCBs6"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View on Google Maps
+      </a>
+      <div class="map-holder mt-2">
+        <iframe
+          class="map"
+          src="https://www.google.com/maps?q=Jaffna%20Thiruvalluvar%20Cultural%20Center&output=embed"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+  `;
 };
+
 
 const detailed = () => {
   content.innerHTML = `

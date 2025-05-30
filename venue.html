@@ -5,323 +5,419 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SUMMER SCHOOL- Computer Intelligence Society</title>
+  <title>SUMMER SCHOOL - Venue | Computer Intelligence Society</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style_org.css" />
+  <!-- Photo Sphere Viewer CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/photo-sphere-viewer@4/dist/photo-sphere-viewer.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
-
-  <link rel="icon" type="image/x-icon" href="./resources/cis.ico">
-
   <link
     href="https://fonts.googleapis.com/css2?family=Monomaniac+One&family=Poppins:wght@300&family=Roboto:wght@300&family=Rubik+Puddles&display=swap"
     rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Panorama Viewer */
+    .panorama-section {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .panorama-section h2 {
+      color: #205295;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    #panorama {
+      width: 100%;
+      height: 400px;
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+
+    /* Slider Styles */
+    .history-slider {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      height: 300px;
+      margin: 1rem auto;
+      overflow: hidden;
+      border-radius: 0.5rem;
+    }
+
+    .history-slider img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .history-slider img.active {
+      opacity: 1;
+    }
+
+    /* Sections */
+    .history-section,
+    .culture-section {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .history-section h2,
+    .culture-section h2 {
+      color: #205295;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    .history-section p,
+    .culture-section p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .history-link {
+      color: #00B5E2;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .history-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Video Previews */
+    .video-previews {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .video-previews iframe {
+      border-radius: 0.5rem;
+    }
+
+    .video-credit {
+      text-align: center;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* Venue Blocks */
+    .venue-block {
+      background: #f7f9fc;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+      margin: 2rem auto;
+      max-width: 900px;
+    }
+
+    .venue-block h3 {
+      color: #144272;
+      margin-bottom: 0.5rem;
+      font-size: 1.4rem;
+    }
+
+    .venue-block a {
+      color: #00B5E2;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .venue-block a:hover {
+      text-decoration: underline;
+    }
+
+    .map-holder {
+      margin-top: 1rem;
+    }
+
+    .map {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 0.5rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #ededed;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    footer>div {
+      flex: 1 1 250px;
+      max-width: 300px;
+      text-align: center;
+    }
+
+    footer h2 {
+      font-family: 'Poppins', sans-serif;
+      color: #0b2647;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .img-holder {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .img-holder img {
+      max-height: 8rem;
+      height: auto;
+      display: block;
+    }
+
+    /* Bottom Bar */
+    .site-footer-line {
+      background-color: #0b2647;
+      color: #ffffff;
+      text-align: center;
+      padding: 0.75rem;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 
 <body>
+  <!-- Header & Hero -->
   <div class="main-container">
     <header>
       <div class="logo">
-        <img src="./resources/logo-bg.png" style="width:19rem;height: 4rem;" alt="" srcset="">
+        <img src="./resources/logo-bg.png" style="width:19rem;height:4rem;" alt="CIS Logo" />
         <div class="title">
-          <img src="./resources/logo w glow.png" style="width: 16rem;height: 9rem;" alt="" srcset="">
+          <img src="./resources/logo w glow.png" style="width:16rem;height:9rem;" alt="CIS Title Logo" />
         </div>
       </div>
       <div class="nav-items">
-        <a href="./index.html" class="selected">
-          <div class="nav-item ">
-            Home
-          </div>
+        <a href="index.html">
+          <div class="nav-item">Home</div>
         </a>
-        <a href="./register.html?p=detailedProgramme">
-          <div class="nav-item ">
-            Programme
-          </div>
+        <a href="register.html?p=detailedProgramme">
+          <div class="nav-item">Programme</div>
         </a>
-        <a href="./register.html">
-          <div class="nav-item ">
-            Registration
-          </div>
+        <a href="register.html">
+          <div class="nav-item">Registration</div>
         </a>
-        <a href="./committee.html">
-          <div class="nav-item ">
-            Committee
-          </div>
+        <a href="committee.html">
+          <div class="nav-item">Committee</div>
         </a>
-        <a href="./venue.html">
-          <div class="nav-item ">
-            Venue
-          </div>
+        <a href="venue.html" class="selected">
+          <div class="nav-item">Venue</div>
         </a>
-        <a href="./gallery.html">
-          <div class="nav-item ">
-            Gallery
-          </div>
+        <a href="gallery.html">
+          <div class="nav-item">Gallery</div>
         </a>
-        <a href="./contact.html">
-          <div class="nav-item ">
-            Contact Us
-          </div>
+        <a href="contact.html">
+          <div class="nav-item">Contact Us</div>
         </a>
       </div>
     </header>
     <section class="main">
-
-      <h3><b>IEEE Summer School <br> On</b> </h3>
-      <h3><b> Computational Intelligence: Theory and Application</b></h3>
-      <h3 class="subtitle">Department of Computer Science, University of Jaffna </h3>
-      <h3>12-14 July 2023</h3>
+      <h3><b>IEEE ComSoc Summer School - Sri Lanka</b></h3>
+      <h3 class="subtitle">Faculty of Engineering, University of Jaffna</h3>
+      <h3>11–15 August 2025</h3>
+      <div class="scroll-wrapper">
+        <h3 class="scrolling-text"><b>Envisioning the Future – Pioneering Next Generation Communication Technologies</b>
+        </h3>
+      </div>
     </section>
   </div>
-  <div class="img-container">
-    <h1>Gallery</h1>
 
-    <h2>Day 1</h2>
+  <!-- Panorama Viewer Section 
+  <section class="panorama-section">
+    <h2>Explore the Faculty of Engineering</h2>
+    <div id="panorama"></div>
+  </section>-->
 
-    <div class="img-grid">
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (1).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (2).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (3).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (4).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (5).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (6).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (7).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (8).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (9).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (10).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (11).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (12).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (13).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (14).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (15).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (16).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (17).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (18).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (19).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (20).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (21).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (22).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (23).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (24).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (25).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (26).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (27).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (28).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (29).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (30).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (31).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (32).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (33).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (34).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (35).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (36).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (37).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (38).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (39).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (40).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (41).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (42).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (43).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (44).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (45).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (46).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (47).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (48).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (49).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (50).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (51).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (52).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (53).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-1/IEEE-SSCI-D1 (54).jpg" width="765" height="574" />
+  <!-- History of Jaffna -->
+  <section class="history-section">
+    <h2>History of the University of Jaffna</h2>
+    <p>
+      The University of Jaffna, established in 1974, stands as a beacon of higher learning in Northern Sri Lanka. Built
+      on a rich heritage of scholarship, it has grown from a small campus into a comprehensive university offering
+      multiple faculties. Through decades of research and community engagement, the University has nurtured leaders in
+      academia, industry, and public service.<br />
+      <a href="https://www.jfn.ac.lk/history/" target="_blank" rel="noopener noreferrer" class="history-link">Visit our
+        history page</a> for more details.
+    </p>
+    <div class="history-slider">
+      <img src="./resources/UoJ/photo1.jpg" alt="Campus Aerial View" class="active" />
+      <img src="./resources/UoJ/photo2.jpg" alt="Faculty Building" />
+      <img src="./resources/UoJ/photo3.jpg" alt="University Library" />
     </div>
-    <h2>Day 2</h2>
+  </section>
 
-    <div class="img-grid">
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (1).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (2).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (3).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (4).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (5).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (6).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (7).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (8).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (9).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (10).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (11).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (12).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (13).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (14).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (15).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (16).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (17).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (18).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (19).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (20).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (21).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (22).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (23).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (24).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (25).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (26).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (27).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (28).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (29).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (30).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (31).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (32).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (33).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (34).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (35).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (36).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (37).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (38).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (39).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (40).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (41).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (42).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (43).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (44).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (45).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (46).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (47).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (48).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (49).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (50).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (51).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (52).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (53).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (54).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (55).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (56).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (57).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (58).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (59).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (60).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (61).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (62).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (63).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (64).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (65).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (66).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (67).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (68).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (69).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (70).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (71).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (72).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (73).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (74).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (75).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (76).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (77).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (78).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (79).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (80).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (81).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (82).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (83).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (84).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (85).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (86).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (87).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (88).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (89).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-2/IEEE-SSCI-D2 (90).jpg" width="765" height="574" />
-
-
+  <!-- History of Faculty of Engineering -->
+  <section class="history-section">
+    <h2>Faculty of Engineering</h2>
+    <p>
+      Founded in 2015 as part of the University’s expansion, the Faculty of Engineering combines modern facilities with
+      experienced faculty to deliver programs in Civil, Electrical, Mechanical, and Computer Engineering. Emphasizing
+      hands-on training, innovation, and research, it prepares students to tackle global challenges.<br />
+      <a href="https://www.eng.jfn.ac.lk/history/" target="_blank" rel="noopener noreferrer" class="history-link">Visit
+        our faculty history page</a> for more details.
+    </p>
+    <div class="history-slider">
+      <img src="./resources/FoE/photo1.jpg" alt="Faculty Aerial View" class="active" />
+      <img src="./resources/FoE/photo2.jpg" alt="Engineering Lab" />
+      <img src="./resources/FoE/photo3.jpg" alt="Workshop Facility" />
+      <img src="./resources/FoE/photo4.jpg" alt="Lecture Hall" />
+      <img src="./resources/FoE/photo5.JPG" alt="Computer Lab" />
+      <img src="./resources/FoE/photo6.JPG" alt="Research Center" />
+      <img src="./resources/FoE/photo7.jpg" alt="Faculty Grounds" />
     </div>
+  </section>
 
+  <!-- Cultural Richness -->
+  <section class="culture-section">
+    <h2>Cultural Richness of Jaffna</h2>
+    <p>Jaffna’s vibrant culture is celebrated through annual festivals, traditional music, and culinary delights.
+      Visitors in August can witness the <strong>Nallur Kandaswamy Temple Festival</strong>—an elaborate ten-day chariot
+      procession honoring Lord Murugan. Experience colorful decorations, rhythmic drumming, and community feasts.</p>
+    <p>Just a short journey away, the world-renowned <strong>Kandy Esala Perahera</strong> takes place in July–August.
+      This grand parade features torchlit dancers, richly adorned elephants, and majestic pageantry in the hill capital.
+      Together, these festivals offer an unforgettable immersion into Sri Lanka’s living traditions.</p>
+    <div class="video-previews">
+      <div style="flex:1;">
+        <iframe src="https://www.youtube.com/embed/yEAnnEqxr1A" width="100%" height="250"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div style="flex:1;">
+        <iframe src="https://www.youtube.com/embed/l8xRJgFr-dY" width="100%" height="250"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+    <p class="video-credit">Video credits: <a href="https://www.srilanka.travel/" target="_blank"
+        class="history-link">SriLanka Travel</a></p>
+  </section>
 
-    <h2>Day 3</h2>
-
-    <div class="img-grid">
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (1).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (2).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (3).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (4).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (5).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (6).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (7).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (8).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (9).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (10).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (11).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (12).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (13).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (14).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (15).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (16).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (17).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (18).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (19).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (20).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (21).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (22).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (23).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (24).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (25).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (26).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (27).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (28).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (29).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (30).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (31).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (32).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (33).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (34).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (35).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (36).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (37).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (38).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (39).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (40).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (41).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (42).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (43).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (44).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (44)_1.jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (44)_2.jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (45).jpg" width="765" height="574" />
-      <img class="lazyload" data-src="./resources/Photos/Day-3/IEEE-SCCI-D3 (46).jpg" width="765" height="574" />
+  <!-- Venues -->
+  <div class="venue-block">
+    <h3>Auditorium, Faculty of Agriculture, University of Jaffna</h3>
+    <a href="https://maps.app.goo.gl/qLPib7jAXtDGV9KH8" target="_blank" rel="noopener noreferrer">View on Google
+      Maps</a>
+    <div class="map-holder">
+      <iframe class="map"
+        src="https://www.google.com/maps?q=Faculty%20of%20Agriculture%20University%20of%20Jaffna&output=embed"
+        allowfullscreen loading="lazy"></iframe>
     </div>
   </div>
+
+  <div class="venue-block">
+    <h3>Jaffna Thiruvalluvar Cultural Center</h3>
+    <a href="https://maps.app.goo.gl/73t8REDacPuWbCBs6" target="_blank" rel="noopener noreferrer">View on Google
+      Maps</a>
+    <div class="map-holder">
+      <iframe class="map" src="https://www.google.com/maps?q=Jaffna%20Thiruvalluvar%20Cultural%20Center&output=embed"
+        allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <!-- Sponsors Footer -->
   <footer>
     <div class="recognition">
       <h2>Organized By</h2>
       <div class="img-holder">
-        <img src="./resources/Crest-UJ-1024.png" style="width:8rem;height: 8rem;" alt="" srcset="">
-        <img src="./resources/Untitled-1-01.png" style="width:15rem;height: 7rem;" alt="" srcset="">
+        <img src="./resources/Crest-UJ-1024.png" alt="Crest UJ" class="logo-small">
+        <img src="./resources/IEEE ComSoc UoJ Logo.png" alt="IEEE ComSoc UoJ" class="logo-small">
       </div>
     </div>
     <div class="recognition">
       <h2>Technical Sponsor</h2>
       <div class="img-holder">
-        <img src="./resources/ieee mb blue.png" style="width:15rem;height:5rem;margin-top: 2rem;" alt="" srcset="">
+        <img src="./resources/ieee-comsoc.png" alt="IEEE ComSoc" class="logo-large">
       </div>
     </div>
     <div class="recognition">
-      <h2> Sponsor</h2>
+      <h2>Knowledge Partners</h2>
       <div class="img-holder">
-        <img src="./resources/wso2-logo.png" style="width:14rem;height:6rem;margin-top:2rem" alt="" srcset="">
+        <img src="./resources/NVLogo_2D.jpg" alt="NVIDIA" class="logo-large">
       </div>
     </div>
-
-    <div class="sponsors">
+    <div class="recognition">
       <h2>Industrial Partners</h2>
       <div class="img-holder">
-        <img src="./resources/99.png" style="width: 6rem;height: 4rem;" alt="" srcset="">
-        <img src="./resources/senz.jpg" style="width: 6rem;height: 6rem;" alt="" srcset="">
-        <img src="./resources/H20ai.png" style="width: 6rem;height: 6rem;" alt="" srcset="">
+        <img src="./resources/freesat.png" alt="Freesat" class="logo-small">
+        <img src="./resources/senz.jpg" alt="Senz" class="logo-small">
+        <img src="./resources/slt-log.svg" alt="H2O.ai" class="logo-small">
+      </div>
+    </div>
+    <div class="recognition">
+      <h2>Media Partners</h2>
+      <div class="img-holder">
+        <img src="./resources/TV_Derana_Logo.png" alt="TV Derana" class="logo-small">
+        <img src="./resources/ITN_Television_Logo_of_Sri_lanka.png" alt="ITN" class="logo-small">
+      </div>
+    </div>
+    <div class="recognition">
+      <h2>Logistics &amp; Supply Partners</h2>
+      <div class="img-holder">
+        <img src="./resources/CEILUX EVENTS (PRIVATE) LIMITED.jpg" alt="Ceilux Events">
       </div>
     </div>
   </footer>
+
+  <!-- Bottom copyright bar -->
+  <div class="site-footer-line">
+    Website developed by S.P.D. Anuraj – Founding Advisor.
+    <br>
+    © 2025 IEEE Communication Society Student Branch Chapter, University of Jaffna. All Rights Reserved.
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/three/build/three.min.js"></script>
+  <script src="https://unpkg.com/photo-sphere-viewer@4/dist/photo-sphere-viewer.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Slider
+      const slides = document.querySelectorAll('.history-slider img');
+      let current = 0;
+      setInterval(() => {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+      }, 3000);
+      // Panorama
+      new PhotoSphereViewer.Viewer({
+        container: document.querySelector('#panorama'),
+        panorama: './resources/UoJ/360.jpg',
+        loadingImg: null,
+        useXmpData: false,
+        defaultYaw: '130deg',
+      });
+    });
+  </script>
 </body>
-<script src="./script.js"></script>
-<script>
-  lazyload();
-
-
-</script>
 
 </html>
