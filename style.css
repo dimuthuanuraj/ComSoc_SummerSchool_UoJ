@@ -341,7 +341,7 @@ footer>div.recognition:first-child>.img-holder {
 
 /* Images inside the side-by-side container */
 footer>div.recognition:first-child>.img-holder>img {
-  max-height: 8rem;
+  max-height: auto;
   height: auto;
   max-width: none;
   display: block;
@@ -1014,21 +1014,25 @@ hr {
 /* Composite Footer Container */
 footer {
   display: flex;
-  flex-wrap: nowrap;              /* keep six columns in one row */
+  flex-wrap: nowrap;
+  /* keep six columns in one row */
   justify-content: space-between;
   gap: 20px;
   padding: 40px;
   background-color: #f4f4f9;
-  overflow-x: auto;               /* allow scroll if viewport too narrow */
+  overflow-x: auto;
+  /* allow scroll if viewport too narrow */
 }
 
 /* Each Sponsor Column */
 footer .recognition {
-  flex: 1 1 0;                    /* equal distribution, shrink as needed */
-  min-width: 0;                   /* allow shrinking below content width */
+  flex: 1 1 0;
+  /* equal distribution, shrink as needed */
+  min-width: 0;
+  /* allow shrinking below content width */
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
   text-align: center;
 }
@@ -1047,12 +1051,15 @@ footer .recognition h2 {
 footer .recognition .img-holder {
   --cols: 1;
   display: grid;
-  grid-auto-flow: column;         /* force one row of columns */
-  grid-auto-columns: 1fr;         /* equal width columns */
+  grid-auto-flow: column;
+  /* force one row of columns */
+  grid-auto-columns: 1fr;
+  /* equal width columns */
   gap: 15px;
   margin-top: 10px;
   width: 100%;
-  height: 120px;                  /* fixed frame height */
+  height: 120px;
+  /* fixed frame height */
   justify-items: center;
   align-items: center;
 }
@@ -1061,7 +1068,8 @@ footer .recognition .img-holder {
 footer .recognition .img-holder img {
   max-width: 100%;
   max-height: 100%;
-  max-height: var(--max-logo-size, 80px); /* default 80px if not set inline */
+  max-height: var(--max-logo-size, 80px);
+  /* default 80px if not set inline */
   width: auto;
   object-fit: contain;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1070,16 +1078,33 @@ footer .recognition .img-holder img {
 /* Logo hover effect */
 footer .recognition .img-holder img:hover {
   transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Top-border Accent by Category */
-footer .recognition:nth-child(1) { border-top: 4px solid #d4af37; }
-footer .recognition:nth-child(2) { border-top: 4px solid #4682b4; }
-footer .recognition:nth-child(3) { border-top: 4px solid #ffcc33; }
-footer .recognition:nth-child(4) { border-top: 4px solid #e67e22; }
-footer .recognition:nth-child(5) { border-top: 4px solid #9b59b6; }
-footer .recognition:nth-child(6) { border-top: 4px solid #2ecc71; }
+footer .recognition:nth-child(1) {
+  border-top: 4px solid #d4af37;
+}
+
+footer .recognition:nth-child(2) {
+  border-top: 4px solid #4682b4;
+}
+
+footer .recognition:nth-child(3) {
+  border-top: 4px solid #ffcc33;
+}
+
+footer .recognition:nth-child(4) {
+  border-top: 4px solid #e67e22;
+}
+
+footer .recognition:nth-child(5) {
+  border-top: 4px solid #9b59b6;
+}
+
+footer .recognition:nth-child(6) {
+  border-top: 4px solid #2ecc71;
+}
 
 /* Always maintain single row, allow horizontal scroll */
 @media (max-width: 768px) {
@@ -1087,11 +1112,14 @@ footer .recognition:nth-child(6) { border-top: 4px solid #2ecc71; }
     flex-wrap: nowrap;
     overflow-x: auto;
   }
+
   footer .recognition {
     min-width: 0;
   }
+
   footer .recognition .img-holder {
-    height: 120px;                /* keep frame height on mobile */
+    height: 120px;
+    /* keep frame height on mobile */
   }
 }
 
@@ -1102,6 +1130,7 @@ footer .recognition .img-holder img.logo-small {
 footer .recognition .img-holder img.logo-large {
   max-height: 100px;
 }
+
 /*Intractive Footer End*/
 
 /* Bottom Bar */
